@@ -1,0 +1,45 @@
+﻿@model List<MvcApplication3.Models.Ilac>
+
+@{
+    ViewBag.Title = "IlacListele";
+}
+<h2>İlaç Listesi</h2>
+<p>
+    @Html.ActionLink("Yeni İlaç Ekle","IlacEkle")
+</p>
+<table class="table">
+
+    <tr>
+        <th>
+           model Adı
+        </th>
+    
+        <th>
+         model turu
+        </th>
+           <th>
+       stok adedi
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    { 
+    <tr>
+        <td>
+            @item.adi
+             
+        </td>
+        <td>
+             @item.turu
+        </td>
+     <td>
+             @item.stokAdedi
+        </td>
+        <td>
+              @Html.ActionLink("Düzenle", "IlacDuzenle", new { id= item.id }) |
+              @Html.ActionLink("Sil", "IlacSil", new {  id= item.id }) 
+        </td>
+    </tr>
+    }
+</table>

@@ -1,0 +1,37 @@
+﻿
+@model MvcApplication3.Models.Ilac  
+
+@{
+    ViewBag.Title = "IlacSil";
+}
+
+<h2>IlacSil</h2>
+
+<h3>Bu ilacı silmek istediğinizden emin misiniz?</h3>
+<div>
+    <h4>İlaç</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            İlaç Adı
+        </dt>
+        <dd>
+            @Html.DisplayFor(model=>model.adi)
+        </dd>
+         <dt>
+            İlaç Türü
+        </dt>
+         <dd>
+            @Html.DisplayFor(model=>model.turu)
+        </dd>
+       
+       
+    </dl>
+    @using (Html.BeginForm("IlacSilPost","Ilac", new {id =Model.id})) { 
+        @Html.AntiForgeryToken()
+           <div class="form-actions no-color">
+               <input type="submit" value ="Sil" class="btn btn-default" /> |
+               @Html.ActionLink("Listeye Geri Dön!","Ilaclistele")
+           </div>
+    }
+</div>

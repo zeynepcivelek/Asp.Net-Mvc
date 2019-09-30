@@ -1,0 +1,54 @@
+﻿@model MvcApplication3.Models.Ilac  
+
+@{
+    ViewBag.Title = "IlacDuzenle";
+}
+
+<h2>IlacDuzenle</h2>
+
+@using (Html.BeginForm("IlacDuzenle","Ilac"))
+{ 
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <h4>Ilac</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new {@class="text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model=>model.adi, htmlAttributes:  new {@class="control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model=>model.adi, new { htmlAttributes=new {@class="form-control"}})
+                 @Html.ValidationMessageFor(model=>model.adi,"", new {@class="text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model=>model.turu, htmlAttributes:  new {@class="control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model=>model.turu, new { htmlAttributes=new {@class="form-control"}})
+                 @Html.ValidationMessageFor(model=>model.turu,"", new {@class="text-danger"})
+            </div>
+        </div>
+         <div class="form-group">
+            @Html.LabelFor(model=>model.stokAdedi, htmlAttributes:  new {@class="control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model=>model.stokAdedi, new { htmlAttributes=new {@class="form-control"}})
+                 @Html.ValidationMessageFor(model=>model.stokAdedi,"", new {@class="text-danger"})
+            </div>
+        </div>
+         
+         <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+               <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+}
+
+<div>
+    @Html.ActionLink("Listeye Geri Dön!","IlacListele","Ilac")
+</div>
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    }
